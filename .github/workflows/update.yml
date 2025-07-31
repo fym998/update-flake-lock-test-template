@@ -17,4 +17,8 @@ jobs:
       - name: Check flake
         uses: DeterminateSystems/flake-checker-action@main
       - name: Update flake.lock
-        uses: DeterminateSystems/update-flake-lock@main
+        uses: fym998/update-flake-lock@multi-flake
+        with:
+          flakes: |
+            .
+            sub-flake
