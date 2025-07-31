@@ -21,4 +21,4 @@ jobs:
         with:
           flakes: |
             .
-            sub-flake
+            sub-flake/
