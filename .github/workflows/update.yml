@@ -25,6 +25,7 @@ jobs:
             sub-flake-empty-commit-summary/
             sub-flake-null-commit-summary/
             sub-flake-not-listed/
+          commit-msg: default commit summary message
           commit-msg-per-flake: |
             {
               ".": "Update flake.lock for main flake",
