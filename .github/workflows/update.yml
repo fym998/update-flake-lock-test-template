@@ -2,7 +2,7 @@ name: update-flake-lock
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: "0 0 * * 0"
 
 jobs:
   lockfile:
@@ -17,8 +17,18 @@ jobs:
       - name: Check flake
         uses: DeterminateSystems/flake-checker-action@main
       - name: Update flake.lock
-        uses: fym998/update-flake-lock@multi-flake
+        uses: fym998/update-flake-lock@multi-commit-lock-file-summary
         with:
           flakes: |
             .
             sub-flake/
+            sub-flake-empty-commit-summary/
+            sub-flake-null-commit-summary/
+            sub-flake-not-listed/
+          commit-msg-per-flake: |
+            {
+              ".": "Update flake.lock for main flake",
+              "sub-flake/": "Update flake.lock for sub-flake",
+              "sub-flake-empty-commit-summary/": "",
+              "sub-flake-null-commit-summary/": null
+            }
